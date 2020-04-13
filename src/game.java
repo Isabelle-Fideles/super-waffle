@@ -84,12 +84,12 @@ public class game {
 		boolean x = true;
 		Scanner in = new Scanner(System.in);
 		game g = new game();
-		//new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		g.getMapa1();
 		
 		while(x==true) {
 			movimento= in.next();
-			//new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 			g.andar(movimento);
 		}
 	}
