@@ -41,85 +41,55 @@ public class game {
 	}
 	
 	public void getMapa() {
-		if (movimento.equals("s")) {
-			Mapa[getI()-1][getJ()]=0;
-		}
-		
-		if (movimento.equals("w")) {
-			Mapa[getI()+1][getJ()]=0;
-		}
-		
-		if (movimento.equals("d")) {
-			Mapa[getI()][getJ()-1]=0;
-		}
-
-		if (movimento.equals("a")) {
-			Mapa[getI()][getJ()+1]=0;
-		}
 		for ( int i =0; i<Mapa.length; i++) {
 			for (int j=0; j<Mapa.length; j++) {
 				System.out.print(Mapa[i][j]+" ");
-				Mapa[getI()][getJ()]= 1;
 			}
 			System.out.println();
 		}
 	 
 }
 	public void andar(String Andar) {
+		Mapa[getI()][getJ()] = 0;
 		if (Andar.equals("s")) {
 			if (i!=4) {
-			setI(i=i+1);
-			getMapa();
-			}
-			else {
-				getMapa();
+				setI(i+1);
 			}
 		}
 		else
 		if (Andar.equals("w")) {
 			if(i!=0) {
-			setI(i=i-1);
-			getMapa();
-			}
-			else {
-				getMapa();
+				setI(i-1);
 			}
 		}
 		else
 		if (Andar.equals("d")) {
 			if (j!=4) {
-			setJ(j=j+1);
-			getMapa();
-			}
-			else { 
-				getMapa();
+				setJ(j+1);
 			}
 		}
 		else
 		if (Andar.equals("a")) {
 			if (j!=0) {
-			setJ(j=j-1);
-			getMapa();
-			}
-			else {
-				getMapa();
+				setJ(j-1);
 			}
 		}
 		else {
-			getMapa();
-			System.out.println("Comando inválido!!");
+			System.out.println("Comando invÃ¡lido!!");
 		}
+		Mapa[getI()][getJ()]= 1;
+		getMapa();
 	}	
 	public static void main(String...arg) throws IOException, InterruptedException  {
 		boolean x = true;
 		Scanner in = new Scanner(System.in);
 		game g = new game();
-		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		//new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		g.getMapa1();
 		
 		while(x==true) {
 			movimento= in.next();
-			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+			//new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 			g.andar(movimento);
 		}
 	}
